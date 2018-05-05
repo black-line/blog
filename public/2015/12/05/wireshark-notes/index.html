@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.2.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="安装坎坷的安装过程 我的天。。从这里下载源码。解压tar -xvf wireshark-2.0.0.tar.bz2检查wireshark的依赖关系cd wireshark-2.0.0./config发现一堆问题。。。。。。。。。。。。。。。">
+<meta name="keywords" content="notes,wireshark">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Wireshark-notes">
+<meta property="og:url" content="https://blog.imwzq.com/2015/12/05/wireshark-notes/index.html">
+<meta property="og:site_name" content="echobaymax&#39;s blog">
+<meta property="og:description" content="安装坎坷的安装过程 我的天。。从这里下载源码。解压tar -xvf wireshark-2.0.0.tar.bz2检查wireshark的依赖关系cd wireshark-2.0.0./config发现一堆问题。。。。。。。。。。。。。。。">
+<meta property="og:locale" content="zh">
+<meta property="og:updated_time" content="2015-12-09T13:28:17.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Wireshark-notes">
+<meta name="twitter:description" content="安装坎坷的安装过程 我的天。。从这里下载源码。解压tar -xvf wireshark-2.0.0.tar.bz2检查wireshark的依赖关系cd wireshark-2.0.0./config发现一堆问题。。。。。。。。。。。。。。。">
+
+
+
+
+
+
+  <link rel="canonical" href="https://blog.imwzq.com/2015/12/05/wireshark-notes/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Wireshark-notes | echobaymax's blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">echobaymax's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">hi ~</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.imwzq.com/2015/12/05/wireshark-notes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wu Zequn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="echobaymax's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Wireshark-notes
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2015-12-05 01:08:48" itemprop="dateCreated datePublished" datetime="2015-12-05T01:08:48+08:00">2015-12-05</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2015-12-09 21:28:17" itemprop="dateModified" datetime="2015-12-09T21:28:17+08:00">2015-12-09</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>坎坷的安装过程 我的天。。<br>从<a href="https://www.wireshark.org/download.html" target="_blank" rel="noopener">这里</a>下载源码。<br>解压<br><code>tar -xvf wireshark-2.0.0.tar.bz2</code><br>检查wireshark的依赖关系<br><code>cd wireshark-2.0.0</code><br><code>./config</code><br>发现一堆问题。。。。。。。。。。。。。。。<br><a id="more"></a></p>
+<ol>
+<li>缺少yacc (or bison or …)<code>-yacc(Yet Another Compiler Compiler)，是Unix/Linux上一个用来生成编译器的编译器（编译器代码生成器）。
+解决</code>sudo apt-get install flex bison`</li>
+<li>缺少Qt<br>解决<br><code>sudo apt-get install libqt4-dev</code> -听说要Qt5但是qt4也能用</li>
+<li>缺少GTK+ 3<br>解决<br><code>sudo apt-get install libgtk-3-dev</code></li>
+<li>缺少pcap.h等文件<br>解决<br><a href="http://www.tcpdump.org/#latest-release" target="_blank" rel="noopener">下载源码</a>libpcap-1.7.4.tar.gz<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf libpcap-1.7.4.tar.gz</span><br><span class="line">cd libpcap-1.0.0.tar.gz</span><br><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>终于到了<code>./configure</code>没有问题 可以安装wireshark的时候<br>看到<br>安装Checkinstall以便管理您系统中直接由源代码编译安装的软件。</p>
+<h2 id="google一下"><a href="#google一下" class="headerlink" title="google一下"></a>google一下</h2><p>Checkinstall is an extremely useful tool that helps when installing software after their compilation.<br>When a software is compiled, the following well known commands are used:</p>
+<p><code>#./configure</code><br><code>#make</code><br><code>#make install</code></p>
+<p>There are two majors problems with this way of installing programs:</p>
+<ol>
+<li>The “make uninstall” command is very often not available and thus you cannot uninstall the program.</li>
+<li>You don’t have any tracking of the installed program.<br>All these problems are solved with CheckInstall, which replaces “make install” as shown below.</li>
+</ol>
+<p><code>#./configure</code><br><code>#make</code><br><code>#checkinstall</code></p>
+<p>Checkinstall executes the “make install” command, creates a Debian package and installs it with the “dpkg -i” command. This new Debian package is copied on the hard drive at the same time. You can use this package on another computer without having to compile the software again.<br>As the install has been done with a Debian package, it is now possible to use all the dpkg commands such as “dpkg -L” to see the installed files of a software or “dpkg -r” to uninstall a program very easily.<br>Please note that like “make install”, the checkinstall command must be launched by the root user.</p>
+<p>To install CheckInstall:</p>
+<p>sudo apt-get install checkinstall</p>
+<hr>
+<p>简单来说。好处:</p>
+<ol>
+<li>因为<code>make uninstall</code>命令经常找不到，所以checkinstall便于卸载用源码编译的文件而不用让用户寻找软件安装目录<br>原因:<br>Checkinstall执行<code>make install</code>命令，创建一个Debian软件包，并用“dpkg -i来”命令进行安装。这种新的Debian软件包被创建在当前目录下。你可以在其他电脑上使用这个安装包，而无需重新编译软件。由于用Debian包安装，可以使用所有的dpkg命令，如<code>dpkg的-L</code>查看已安装的软件或<code>dpkg-r</code>很卸载程序。<strong>注意</strong>,就像<code>make install</code>一样，<code>checkinstall</code>必须在root权限下使用。<br>安装<br><code>sudo apt-get install checkinstall</code></li>
+</ol>
+<hr>
+<p>经过漫长的等待，wireshark终于编译完成了<br>但是。。。。。。。<br>出于安全方面的考虑，普通用户不能够打开网卡设备进行抓包，wireshark不建议用户通过sudo在root权限下运行<br>wireshark为ubuntu（Debian）用户提供了一种在非root下的解决方法。<br>（详细解释可以参考：/usr/share/doc/wireshark-common/README.Debian）<br>具体步骤：<br><code>sudo dpkg-reconfigure wireshark-common</code><br>选择Yes<br>在组策略中会出现wireshark组，默认没有任何用户属于这个组，只需把特定的用户加入组中（需要注销后重新登录来使设置生效）<br>就可以以该用户来运行wireshark实时抓网络数据包<br>在wireshark组后添加用户,若用户名user<br><code>sudo usermod -a -G wireshark user</code><br>万万没想到。。wireshark-common没装。。也不知道哪一步出错了。。<br>查看apt-get中wireshark版本。老。<br>最后<br><code>sudo add-apt-repository ppa:wireshark-dev/stable</code><br><code>sudo apt-get update; sudo apt-get install wireshark</code><br>这样就更新到了最新的2.0.0版本。<br>再用之前提到的<br><code>sudo dpkg-reconfigure wireshark-common</code><br><code>sudo usermod -a -G wireshark user</code><br>注销重新登录就生效了。</p>
+<p>直接复制 没看过供参考</p>
+<hr>
+<p>但是用ppa安装后会出现一些有关权限的问题，可以用下面的方法解决：<br>If you run wireshark as a non root user at this stage (see image above), you will get the message “No interface can be used for capturing in this system with the current configuration.”. The following steps will rectify this.</p>
+<p>Create the wireshark group.</p>
+<p><code>sudo groupadd wireshark</code><br>Add your username to the wireshark group<br><code>sudo usermod -a -G wireshark YOUR_USER_NAME</code><br>Change the group  ownership of file dumpcap to wireshark<br><code>sudo chgrp wireshark /usr/bin/dumpcap</code><br>Change the mode of the file dumpcap to allow execution by the group wireshark<br><code>sudo chmod 750 /usr/bin/dumpcap</code><br>Grant capabilities with setcap<br><code>sudo setcap cap_net_raw,cap_net_admin=eip /usr/bin/dumpcap</code><br>Verify the change<br><code>sudo getcap /usr/bin/dumpcap</code><br>At this point, you will need to log out, then back into Unity (Thanks for Jorge for pointing this out).<br>方法三：如果想装最新的wireshark版本，可以用下面的ppa:<br>The latest Wireshark version available is Wireshark 1.11.0, which can be installed from a PPA. To install Wireshark on Ubuntu, Linux Mint and Debian, do this:</p>
+<p><code>$ sudo add-apt-repository ppa:dreibh/ppa</code><br><code>$ sudo apt-get update</code><br><code>$ sudo apt-get install wireshar</code><br>To start wiresharking, just type nohup wireshark &amp;&gt; /dev/null &amp; in your terminal.</p>
+<hr>
+<p>Ctrl-F -打开Find Packet<br>1.Display filter -输入表达式筛选 not ip,ip.addr==x.x.x.x,arp<br>2.Hex value -00:ff,ff:ff,00:AB:B1:f0<br>3.String -UserB,domin<br>将某一个数据包设定为时间参考 -选中数据包 Set Time Reference</p>
+<h3 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h3><h4 id="捕获过滤器-BPF-Berkeley-Packet-Filter-语法"><a href="#捕获过滤器-BPF-Berkeley-Packet-Filter-语法" class="headerlink" title="捕获过滤器(BPF(Berkeley Packet Filter)语法)"></a>捕获过滤器(BPF(Berkeley Packet Filter)语法)</h4><p><strong>Ubuntu 14.10用不了？？？？</strong><br>限定词|说明|例子<br>—|—|—<br>Type|指出名字或数字所代表的意义|host,net,port<br>Dir|指明传输方向是前往还是来自名字或数字|src,dst<br>Proto|限定所要匹配的协议|ether,ip,tcp,udp,http,ftp<br>Ex: <code>dst host 192.168.0.10 &amp;&amp; tcp port 80</code><br>三种逻辑运算符: <code>&amp;&amp;   ||    !</code></p>
+<h4 id="显示过滤器"><a href="#显示过滤器" class="headerlink" title="显示过滤器"></a>显示过滤器</h4><p>and or not xor(有且只有一个条件被满足)</p>
+<hr>
+<p>Statistics-&gt;Endpoints -查看端口(端点地址，传输发送数据包的数量和字节数)<br>Statistics-&gt;Conversations -查看网络会话()</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/notes/" rel="tag"># notes</a>
+          
+            <a href="/tags/wireshark/" rel="tag"># wireshark</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/12/02/spider-notes/" rel="next" title="Spider学习笔记">
+                <i class="fa fa-chevron-left"></i> Spider学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/12/19/photography-basics/" rel="prev" title="摄影基础">
+                摄影基础 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Wu Zequn</p>
+              <p class="site-description motion-element" itemprop="description">good good study, day day up</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-name">tags</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#google一下"><span class="nav-number"></span> <span class="nav-text">google一下</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#过滤器"><span class="nav-number">1.</span> <span class="nav-text">过滤器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#捕获过滤器-BPF-Berkeley-Packet-Filter-语法"><span class="nav-number">1.1.</span> <span class="nav-text">捕获过滤器(BPF(Berkeley Packet Filter)语法)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#显示过滤器"><span class="nav-number">1.2.</span> <span class="nav-text">显示过滤器</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wu Zequn</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.2.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.2.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
