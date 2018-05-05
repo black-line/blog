@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.2.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Based on Ubuntu 16.04.02 LTSLast updated: 2017-04-04  amuleWelcome to aMule, the all-platform eMule-like P2P client1$ sudo apt install amule TO BE CONTIUNE&amp;gt;&amp;gt;&amp;gt; removed">
+<meta name="keywords" content="ubuntu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ubuntu配置指南">
+<meta property="og:url" content="https://blog.imwzq.com/2017/03/15/ubuntu-configuration-guide/index.html">
+<meta property="og:site_name" content="echobaymax&#39;s blog">
+<meta property="og:description" content="Based on Ubuntu 16.04.02 LTSLast updated: 2017-04-04  amuleWelcome to aMule, the all-platform eMule-like P2P client1$ sudo apt install amule TO BE CONTIUNE&amp;gt;&amp;gt;&amp;gt; removed">
+<meta property="og:locale" content="zh">
+<meta property="og:updated_time" content="2017-04-04T12:39:41.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ubuntu配置指南">
+<meta name="twitter:description" content="Based on Ubuntu 16.04.02 LTSLast updated: 2017-04-04  amuleWelcome to aMule, the all-platform eMule-like P2P client1$ sudo apt install amule TO BE CONTIUNE&amp;gt;&amp;gt;&amp;gt; removed">
+
+
+
+
+
+
+  <link rel="canonical" href="https://blog.imwzq.com/2017/03/15/ubuntu-configuration-guide/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>ubuntu配置指南 | echobaymax's blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">echobaymax's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">hi ~</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.imwzq.com/2017/03/15/ubuntu-configuration-guide/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wu Zequn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="echobaymax's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ubuntu配置指南
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2017-03-15 15:42:21" itemprop="dateCreated datePublished" datetime="2017-03-15T15:42:21+08:00">2017-03-15</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2017-04-04 20:39:41" itemprop="dateModified" datetime="2017-04-04T20:39:41+08:00">2017-04-04</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Based-on-Ubuntu-16-04-02-LTS"><a href="#Based-on-Ubuntu-16-04-02-LTS" class="headerlink" title="Based on Ubuntu 16.04.02 LTS"></a>Based on Ubuntu 16.04.02 LTS</h3><p>Last updated: 2017-04-04</p>
+<hr>
+<h4 id="amule"><a href="#amule" class="headerlink" title="amule"></a>amule</h4><p><a href="http://www.amule.org/" target="_blank" rel="noopener">Welcome to aMule, the all-platform eMule-like P2P client</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install amule</span><br></pre></td></tr></table></figure></p>
+<p><strong>TO BE CONTIUNE&gt;&gt;&gt;</strong> removed<br><a id="more"></a></p>
+<h4 id="android-studio"><a href="#android-studio" class="headerlink" title="android studio"></a>android studio</h4><p><a href="http://sourcedigit.com/19447-19447/" target="_blank" rel="noopener">Install Android Studio 2.0, Via PPA On Ubuntu 16.04</a></p>
+<p>Once Java is installed, run the following commands to install Android Studio:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo add-apt-repository ppa:paolorotolo/android-studio</span><br><span class="line">$ sudo apt update</span><br><span class="line">$ sudo apt install android-studio</span><br></pre></td></tr></table></figure></p>
+<p>If “Error: Unable to run mksdcard SDK tool” appeared<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install lib32stdc++6</span><br></pre></td></tr></table></figure></p>
+<h4 id="chrome"><a href="#chrome" class="headerlink" title="chrome"></a>chrome</h4><p><a href="http://ubuntuportal.com/2014/04/how-to-install-google-chrome-web-browser-in-ubuntu-14-04-lts-trusty-tahr.html" target="_blank" rel="noopener">How to Install Google Chrome Web Browser in Ubuntu 14.04 LTS Trusty Tahr</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -</span><br><span class="line">$ sudo sh -c <span class="string">'echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" &gt;&gt; /etc/apt/sources.list.d/google-chrome.list'</span></span><br><span class="line">$ sudo apt update &amp;&amp; sudo apt install -f</span><br><span class="line">$ sudo apt install google-chrome-stable</span><br></pre></td></tr></table></figure></p>
+<h4 id="clion"><a href="#clion" class="headerlink" title="clion"></a>clion</h4><p><a href="https://www.jetbrains.com/help/clion/" target="_blank" rel="noopener">https://www.jetbrains.com/help/clion/</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget https://www.jetbrains.com/clion/download/download-thanks.html</span><br></pre></td></tr></table></figure></p>
+<p><em>unpack</em><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar xzvf /home/watermelon/Downloads/CLion-*</span><br></pre></td></tr></table></figure></p>
+<p>… …<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sh *.sh</span><br></pre></td></tr></table></figure></p>
+<h4 id="dislocker"><a href="#dislocker" class="headerlink" title="dislocker"></a>dislocker</h4><p><a href="http://askubuntu.com/questions/617950/use-windows-bitlocker-encrypted-drive-on-ubuntu-14-04-lts" title="Use (Windows) BitLocker-encrypted drive on Ubuntu 14.04 LTS" target="_blank" rel="noopener">1. Use (Windows) BitLocker-encrypted drive on Ubuntu 14.04 LTS</a></p>
+<p><a href="https://github.com/Aorimn/dislocker/tree/develop" title="FUSE driver to read/write Windows&#39; BitLocker-ed volumes under Linux / Mac OSX" target="_blank" rel="noopener">2. FUSE driver to read/write Windows’ BitLocker-ed volumes under Linux / Mac OSX</a></p>
+<p><a href="http://unix.stackexchange.com/questions/178638/eject-safely-remove-vs-umount" title="udisksctl - a new way to unmount and power off" target="_blank" rel="noopener">udisksctl - a new way to unmount and power off</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/Aorimn/dislocker.git</span><br><span class="line">$ sudo apt update</span><br><span class="line">$ sudo apt install gcc cmake make libfuse-dev libmbedtls-dev ruby-dev</span><br><span class="line">$ cmake .</span><br><span class="line">$ make</span><br><span class="line">$ sudo make install</span><br></pre></td></tr></table></figure></p>
+<p>example:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dislocker -v -V /dev/sdc5 -u -- /media/bitlocker/</span><br><span class="line">$ sudo mount /media/bitlocker/dislocker-file /media/mount/</span><br></pre></td></tr></table></figure></p>
+<p>…<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ umount /media/mount</span><br><span class="line">$ umount /media/bitlocker</span><br><span class="line">$ udisksctl unmount -b /dev/sdc1</span><br><span class="line">$ udisksctl unmount -b /dev/sdc2</span><br><span class="line">$ udisksctl unmount -b /dev/sdc3</span><br><span class="line">$ udisksctl unmount -b /dev/sdc4</span><br><span class="line">$ udisksctl unmount -b /dev/sdc5</span><br><span class="line">$ udisksctl unmount -b /dev/sdc6</span><br><span class="line">$ udisksctl unmount -b /dev/sdc7</span><br><span class="line">$ udisksctl power-off -b /dev/sdc</span><br></pre></td></tr></table></figure></p>
+<h4 id="ffvpn"><a href="#ffvpn" class="headerlink" title="ffvpn"></a>ffvpn</h4><p><a href="http://www.feifan-vpn.net/download-linux" target="_blank" rel="noopener">http://www.feifan-vpn.net/download-linux</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ tar -zxvf THE-DOWNLOADED-TAR-GZ</span><br><span class="line">$ sudo vim /etc/ffvpn.conf</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">user YOUR-ACCOUNT-NAME</span><br><span class="line">pass YOUR-PASSWORD</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ./ffvpn login</span><br><span class="line">$ ./ffvpn list</span><br><span class="line">$ ./ffvpn list <span class="string">"usa"</span></span><br><span class="line">$ ./ffvpn connect <span class="string">"California 13"</span></span><br></pre></td></tr></table></figure>
+<p><strong>Please choose protocol [udp/tcp/lwip/socks5]: socks5</strong></p>
+<p>close google-chrome<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ google-chrome --proxy-server=<span class="string">"socks5://127.0.0.1:1080"</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="git"><a href="#git" class="headerlink" title="git"></a>git</h4><p><a href="https://www.digitalocean.com/community/tutorials/how-to-install-git-on-ubuntu-16-04" target="_blank" rel="noopener">How To Install Git on Ubuntu 16.04</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt update</span><br><span class="line">$ sudo apt install git</span><br><span class="line">$ git config --global user.name <span class="string">"Your Name"</span></span><br><span class="line">$ git config --global user.email <span class="string">"youremail@domain.com"</span></span><br><span class="line">$ git config --list</span><br></pre></td></tr></table></figure></p>
+<h4 id="hadoop-2-7-2-compile"><a href="#hadoop-2-7-2-compile" class="headerlink" title="hadoop-2.7.2-compile"></a>hadoop-2.7.2-compile</h4><p><strong>install java7(may cause error with java8)</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo add-apt-repository ppa:webupd8team/java</span><br><span class="line">$ sudo apt update</span><br><span class="line">$ sudo apt install oracle-java8-installer</span><br></pre></td></tr></table></figure></p>
+<p><strong>install maven</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install maven</span><br><span class="line">$ mvn --version</span><br></pre></td></tr></table></figure></p>
+<p><strong>install dependciii</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install g++ autoconf automake libtool cmake zlib1g-dev pkg-config libssl-dev</span><br></pre></td></tr></table></figure></p>
+<p><strong>install openssh</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install openssh-server</span><br></pre></td></tr></table></figure></p>
+<p><strong>install Protocol Buffer</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ wget ftp://ftp.netbsd.org/pub/pkgsrc/distfiles/protobuf-2.5.0.tar.gz -O protobuf-2.5.0.tar.gz</span><br><span class="line">$ tar xvf protobuf-2.5.0.tar.gz</span><br><span class="line">$ <span class="built_in">cd</span> protobuf-2.5.0/</span><br><span class="line">$ ./configure</span><br><span class="line">$ make</span><br><span class="line">$ make check</span><br><span class="line">$ sudo make install</span><br><span class="line">$ sudo ldconfig</span><br></pre></td></tr></table></figure></p>
+<p>important!!!</p>
+<p><strong>compile hadoop</strong></p>
+<p>In order to prevent the Java memory overflow within the compilation process, we need add the following environment variables<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim /etc/profile</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export MAVEN_OPTS=<span class="string">"-Xmx2048m -XX:MaxPermSize=512m"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">source</span> /etc/profile</span><br><span class="line">$ wget http://apache.01link.hk/hadoop/common/hadoop-2.7.2/hadoop-2.7.2-src.tar.gz -O hadoop-2.7.2-src.tar.gz</span><br></pre></td></tr></table></figure>
+<p>(not the only source)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ tar xvf hadoop-2.7.2-src.tar.gz</span><br><span class="line">$ <span class="built_in">cd</span> hadoop-2.7.2-src/</span><br><span class="line">$ mvn clean package -Pdist,native -DskipTests -Dtar</span><br></pre></td></tr></table></figure></p>
+<h4 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h4><p><a href="https://hexo.io/docs/" target="_blank" rel="noopener">https://hexo.io/docs/</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install git</span><br><span class="line">$ wget -qO- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | sh</span><br></pre></td></tr></table></figure></p>
+<p>Once nvm is installed, restart the terminal and run the following command to install Node.js.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ nvm install stable</span><br><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure></p>
+<p>there are two warnings:</p>
+<ol>
+<li><p>npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@^1.0.0 (node_modules/hexo-cli/node_modules/chokidar/node_modules/fsevents):</p>
+</li>
+<li><p>npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for <a href="mailto:fsevents@1.1.1" target="_blank" rel="noopener">fsevents@1.1.1</a>: wanted {“os”:”darwin”,”arch”:”any”} (current: {“os”:”linux”,”arch”:”x64”})</p>
+</li>
+</ol>
+<h4 id="hit-oslab"><a href="#hit-oslab" class="headerlink" title="hit-oslab"></a>hit-oslab</h4><p><a href="http://www.cnblogs.com/tradoff/p/5693710.html" target="_blank" rel="noopener">操作系统实验报告-熟悉实验环境</a></p>
+<h4 id="hosts"><a href="#hosts" class="headerlink" title="hosts"></a>hosts</h4><p><a href="https://github.com/racaljk/hosts" target="_blank" rel="noopener">racaljk/hosts: 最新可用的google hosts文件. 镜像: https://coding.net/u/scaffrey/p/hosts/git</a></p>
+<p>or </p>
+<p><a href="https://raw.githubusercontent.com/racaljk/hosts/master/hosts" target="_blank" rel="noopener">https://raw.githubusercontent.com/racaljk/hosts/master/hosts</a></p>
+<p>copy all<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /etc</span><br><span class="line">$ sudo cp hosts hosts.bak</span><br><span class="line">$ sudo vi hosts</span><br></pre></td></tr></table></figure></p>
+<p>-&gt;…… (restart)</p>
+<p><a href="https://www.google.com/ncr" target="_blank" rel="noopener">https://www.google.com/ncr</a></p>
+<h4 id="htop"><a href="#htop" class="headerlink" title="htop"></a>htop</h4><p><a href="http://www.howtogeek.com/howto/ubuntu/using-htop-to-monitor-system-processes-on-linux/" target="_blank" rel="noopener">1. Using htop to Monitor System Processes on Linux</a></p>
+<p><a href="http://www.howtogeek.com/107217/how-to-manage-processes-from-the-linux-terminal-10-commands-you-need-to-know/" target="_blank" rel="noopener">2. How to Manage Processes from the Linux Terminal: 10 Commands You Need to Know</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install htop</span><br></pre></td></tr></table></figure></p>
+<h4 id="ibus-pinyin"><a href="#ibus-pinyin" class="headerlink" title="ibus-pinyin"></a>ibus-pinyin</h4><p><a href="http://www.jb51.net/os/Ubuntu/161244.html" target="_blank" rel="noopener">英文版ubuntu安装ibus输入法(中文输入法)和开机自启动的方法</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install ibus-pinyin</span><br></pre></td></tr></table></figure></p>
+<p>restart</p>
+<p>System Settings-&gt; Text Entry-&gt; press “+”-&gt; find Chinese(Pinyin)(IBus)</p>
+<p>press “add”</p>
+<h4 id="java8"><a href="#java8" class="headerlink" title="java8"></a>java8</h4><p><a href="https://www.unixmen.com/installing-java-jrejdk-ubuntu-16-04/" target="_blank" rel="noopener">1. Installing JAVA jre/jdk with Ubuntu 16.04</a></p>
+<p><a href="http://sourcedigit.com/19575-install-oracle-java-on-ubuntu-16-04-via-terminal/" target="_blank" rel="noopener">2. Install Oracle Java On Ubuntu 16.04, via Terminal</a></p>
+<p>Before you begin the installation, run the following command to verify the version of Java already installed on the system.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ java -version</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo add-apt-repository ppa:webupd8team/java</span><br><span class="line">$ sudo apt update</span><br><span class="line">$ sudo apt install oracle-java8-installer</span><br></pre></td></tr></table></figure>
+<p>If you have more than one different flavors of Java installed, we can find appropriate path for java version we want to make default<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo update-alternatives --config java</span><br></pre></td></tr></table></figure></p>
+<p>Open and edit /etc/profile file<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/profile</span><br></pre></td></tr></table></figure></p>
+<p>Put following line in last line of the file, copy jre path from previous command:<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=<span class="string">"/usr/lib/jvm/java-8-oracle"</span></span><br><span class="line">export PATH=<span class="string">"$&#123;PATH&#125;:$&#123;JAVA_HOME&#125;/bin"</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure>
+<p>Verify default JAVA_HOME is effectively modified or not<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="variable">$JAVA_HOME</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="latex"><a href="#latex" class="headerlink" title="latex"></a>latex</h4><p><a href="https://www.latex-tutorial.com/" target="_blank" rel="noopener">LaTeX Tutorial – Interactive Lessons, Code Examples – For Beginners</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo add-apt-repository ppa:jonathonf/texlive</span><br><span class="line">$ sudo apt update</span><br><span class="line">$ sudo apt install texlive-full texmaker</span><br></pre></td></tr></table></figure></p>
+<h4 id="markdown"><a href="#markdown" class="headerlink" title="markdown"></a>markdown</h4><p><a href="https://moeditor.org/" target="_blank" rel="noopener">MOEDITOR Your all-purpose markdown editor.</a></p>
+<p>example:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ wget https://github.com/Moeditor/Moeditor/releases/download/v0.2.0-beta/moeditor_0.2.0-1_amd64.deb</span><br><span class="line">$ sudo dpkg -i moeditor_0.2.0-1_amd64.deb</span><br></pre></td></tr></table></figure></p>
+<h4 id="matlab"><a href="#matlab" class="headerlink" title="matlab"></a>matlab</h4><p><a href="http://blog.csdn.net/lcx543576178/article/details/51376008" target="_blank" rel="noopener">Ubuntu16.04下 Matlab2015b安装与激活及注意事项</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo ln -s /usr/<span class="built_in">local</span>/MATLAB/R2015b/bin/matlab   /usr/<span class="built_in">local</span>/bin/matlab</span><br></pre></td></tr></table></figure></p>
+<h4 id="my-cloud-ex2-ultra"><a href="#my-cloud-ex2-ultra" class="headerlink" title="my cloud ex2 ultra"></a>my cloud ex2 ultra</h4><p>For WD My Cloud, there is no official support for  Ubuntu or any other Linux distros. But setting up it quite easy.</p>
+<p>Make sure You have connected power adapter &amp; LAN cables to it. If You open Your router config, You will see WD My cloud in client list. Make note of its IP address. If You want You can assign a static IP also.</p>
+<p>Next step is to install NFS client package. NFS(Network File System) allows a system to share directories and files with others over a network. By using NFS, users and programs can access files on remote systems almost as if they were local files. So, update your packages &amp; install nfs-common package.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt update</span><br><span class="line">$ sudo apt install nfs-common</span><br><span class="line">$ showmount -e &lt;ip-address&gt;</span><br><span class="line">$ sudo mount -o rw,soft,intr,nfsvers=3 &lt;ip&gt;:&lt;folder-to-mount&gt; &lt;path-to-mount&gt;</span><br></pre></td></tr></table></figure></p>
+<p>example:</p>
+<p>(sudo mount -o rw,soft,intr,nfsvers=3 192.168.1.5:/mnt/HD/HD_a2/jessywu ~/wdmceu/)</p>
+<h4 id="opencv"><a href="#opencv" class="headerlink" title="opencv"></a>opencv</h4><p><a href="http://docs.opencv.org/2.4.13/doc/tutorials/introduction/linux_install/linux_install.html#linux-installation" target="_blank" rel="noopener">Installation in Linux — OpenCV 2.4.13.0 documentation</a></p>
+<h4 id="opengl"><a href="#opengl" class="headerlink" title="opengl"></a>opengl</h4><p><a href="http://www.jianshu.com/p/e4a90503d4a6" target="_blank" rel="noopener">Ubuntu 16.04 OpenGL 开发环境配置指南</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install build-essential libgl1-mesa-dev</span><br><span class="line">$ sudo apt install freeglut3-dev</span><br><span class="line">$ sudo apt install libglew-dev libsdl2-dev libsdl2-image-dev libglm-dev libfreetype6-dev</span><br></pre></td></tr></table></figure></p>
+<h4 id="pppoe"><a href="#pppoe" class="headerlink" title="pppoe"></a>pppoe</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pppoeconf</span><br></pre></td></tr></table></figure>
+<h4 id="python"><a href="#python" class="headerlink" title="python"></a>python</h4><p><a href="https://virtualenv.pypa.io/en/latest/userguide/" target="_blank" rel="noopener">User Guide — virtualenv 15.2.0.dev0 documentation</a></p>
+<p><a href="http://idroot.net/linux/install-pip-ubuntu-16-04/" target="_blank" rel="noopener">How To Install Pip on Ubuntu 16.04</a></p>
+<p><a href="http://docs.python-guide.org/en/latest/dev/virtualenvs/" target="_blank" rel="noopener">Virtual Environments — Guide to Python</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install python-pip</span><br><span class="line">$ sudo -H pip install virtualenv</span><br><span class="line">$ virtualenv -p /usr/bin/python3.5 venv</span><br><span class="line">$ <span class="built_in">source</span> venv/bin/activate</span><br><span class="line">$ deactivate</span><br></pre></td></tr></table></figure></p>
+<p>way to duplicate virtualenv</p>
+<p>go into your original virtualenv, and run:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip freeze &gt; requirements.txt</span><br></pre></td></tr></table></figure></p>
+<p>activate your new virtualenv, and run:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install -r requirements.txt</span><br></pre></td></tr></table></figure></p>
+<h4 id="rar"><a href="#rar" class="headerlink" title="rar"></a>rar</h4><p><a href="http://www.cnblogs.com/lotusve/archive/2012/05/16/2503388.html" target="_blank" rel="noopener">ubuntu解压命令全览(rar)</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install rar</span><br><span class="line">$ sudo apt install unrar</span><br></pre></td></tr></table></figure></p>
+<p>example:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ rar x FileName.rar</span><br><span class="line">$ rar a FileName.rar DirName</span><br></pre></td></tr></table></figure></p>
+<p>针对Windows下zip在Linux下中文解压后显示乱码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install unar</span><br></pre></td></tr></table></figure></p>
+<h4 id="theme"><a href="#theme" class="headerlink" title="theme"></a>theme</h4><p><a href="https://github.com/anmoljagetia/Flatabulous" target="_blank" rel="noopener">This is a Flat theme for Ubuntu and other Gnome based Linux Systems.</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install unity-tweak-tool</span><br><span class="line"></span><br><span class="line">$ sudo add-apt-repository ppa:noobslab/themes</span><br><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get install flatabulous-theme</span><br><span class="line"></span><br><span class="line">$ sudo add-apt-repository ppa:noobslab/icons</span><br><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get install ultra-flat-icons</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>Now press your super key, search for Unity Tweak Tool and fire it. Under the tools tab, there is an option for theme. Under that select the Flatabulous theme. Under the icon settings, select ultra-flat-icons. Restart your computer, and you should be good to go!</p>
+</blockquote>
+<h4 id="tree"><a href="#tree" class="headerlink" title="tree"></a>tree</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install tree</span><br></pre></td></tr></table></figure>
+<h4 id="turboC3"><a href="#turboC3" class="headerlink" title="turboC3"></a>turboC3</h4><p><a href="http://forum.ubuntu.org.cn/viewtopic.php?t=69330" target="_blank" rel="noopener">教程: 使用dosbox安装、运行Turbo C++ 3.0(tc3)</a></p>
+<p>run the following commands in DOSBox Emulator<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mount c ~/dosapp</span><br><span class="line">c:</span><br><span class="line"><span class="built_in">cd</span> tc\bin</span><br><span class="line">tc</span><br></pre></td></tr></table></figure></p>
+<p>exit dosbox<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="ufw"><a href="#ufw" class="headerlink" title="ufw"></a>ufw</h4><p><a href="http://www.cnblogs.com/xiaofengkang/archive/2011/10/22/2220888.html" target="_blank" rel="noopener">Error_404_资源不存在</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install ufw</span><br><span class="line">$ sudo ufw <span class="built_in">enable</span></span><br><span class="line">$ sudo ufw default deny</span><br></pre></td></tr></table></figure></p>
+<h4 id="virtualbox"><a href="#virtualbox" class="headerlink" title="virtualbox"></a>virtualbox</h4><p><a href="http://ubuntuhandbook.org/index.php/2016/07/virtualbox-5-1-released/" target="_blank" rel="noopener">Virtualbox 5.1 Released, How to Install in Ubuntu 16.04</a></p>
+<p><a href="https://www.virtualbox.org/wiki/Linux_Downloads" target="_blank" rel="noopener">Linux_Downloads – Oracle VM VirtualBox</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install dkms</span><br><span class="line">$ sudo apt remove virtualbox virtualbox-5.0 virtualbox-4.*</span><br><span class="line">$ sudo sh -c <span class="string">'echo "deb http://download.virtualbox.org/virtualbox/debian xenial contrib" &gt;&gt; /etc/apt/sources.list.d/virtualbox.list'</span></span><br><span class="line">$ wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -</span><br></pre></td></tr></table></figure></p>
+<p>(B9F8 D658 297A F3EF C18D  5CDF A2F6 83C5 2980 AECF)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt update</span><br><span class="line">$ sudo apt install virtualbox-5.1</span><br></pre></td></tr></table></figure></p>
+<h4 id="vs-code"><a href="#vs-code" class="headerlink" title="vs code"></a>vs code</h4><p><a href="https://code.visualstudio.com/docs/setup/linux" target="_blank" rel="noopener">Running VS Code on Linux</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor &gt; microsoft.gpg</span><br><span class="line">$ sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg</span><br><span class="line">$ sudo sh -c <span class="string">'echo "deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main" &gt; /etc/apt/sources.list.d/vscode.list'</span></span><br><span class="line">$ sudo apt update</span><br><span class="line">$ sudo apt install code</span><br></pre></td></tr></table></figure></p>
+<h4 id="wifi"><a href="#wifi" class="headerlink" title="wifi"></a>wifi</h4><p>-&gt; System Settings-&gt; Software&amp;Updates-&gt; Additional Drivers-&gt;……</p>
+<h4 id="wine"><a href="#wine" class="headerlink" title="wine"></a>wine</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo add-apt-repository ppa:ubuntu-wine/ppa</span><br><span class="line">$ sudo apt update</span><br><span class="line">$ sudo apt install wine1.8</span><br></pre></td></tr></table></figure>
+<h4 id="xmind"><a href="#xmind" class="headerlink" title="xmind"></a>xmind</h4><p><a href="http://www.xmind.net/download/linux/" target="_blank" rel="noopener">Download XMind for Linux - XMind: The Most Popular Mind Mapping Software on The Planet.</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt update</span><br><span class="line">$ sudo dpkg -i xmind-xx-xx-xxxx.deb</span><br><span class="line">$ sudo apt -f install</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ubuntu/" rel="tag"># ubuntu</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/02/03/vacation-notes/" rel="next" title="Vacation-notes">
+                <i class="fa fa-chevron-left"></i> Vacation-notes
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/20/clean-the-dust-out-of-my-laptop/" rel="prev" title="电脑清灰">
+                电脑清灰 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Wu Zequn</p>
+              <p class="site-description motion-element" itemprop="description">good good study, day day up</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-name">tags</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Based-on-Ubuntu-16-04-02-LTS"><span class="nav-number">1.</span> <span class="nav-text">Based on Ubuntu 16.04.02 LTS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#amule"><span class="nav-number">1.1.</span> <span class="nav-text">amule</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#android-studio"><span class="nav-number">1.2.</span> <span class="nav-text">android studio</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chrome"><span class="nav-number">1.3.</span> <span class="nav-text">chrome</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#clion"><span class="nav-number">1.4.</span> <span class="nav-text">clion</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dislocker"><span class="nav-number">1.5.</span> <span class="nav-text">dislocker</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ffvpn"><span class="nav-number">1.6.</span> <span class="nav-text">ffvpn</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git"><span class="nav-number">1.7.</span> <span class="nav-text">git</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hadoop-2-7-2-compile"><span class="nav-number">1.8.</span> <span class="nav-text">hadoop-2.7.2-compile</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hexo"><span class="nav-number">1.9.</span> <span class="nav-text">hexo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hit-oslab"><span class="nav-number">1.10.</span> <span class="nav-text">hit-oslab</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hosts"><span class="nav-number">1.11.</span> <span class="nav-text">hosts</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#htop"><span class="nav-number">1.12.</span> <span class="nav-text">htop</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ibus-pinyin"><span class="nav-number">1.13.</span> <span class="nav-text">ibus-pinyin</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#java8"><span class="nav-number">1.14.</span> <span class="nav-text">java8</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#latex"><span class="nav-number">1.15.</span> <span class="nav-text">latex</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#markdown"><span class="nav-number">1.16.</span> <span class="nav-text">markdown</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#matlab"><span class="nav-number">1.17.</span> <span class="nav-text">matlab</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#my-cloud-ex2-ultra"><span class="nav-number">1.18.</span> <span class="nav-text">my cloud ex2 ultra</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#opencv"><span class="nav-number">1.19.</span> <span class="nav-text">opencv</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#opengl"><span class="nav-number">1.20.</span> <span class="nav-text">opengl</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pppoe"><span class="nav-number">1.21.</span> <span class="nav-text">pppoe</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#python"><span class="nav-number">1.22.</span> <span class="nav-text">python</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#rar"><span class="nav-number">1.23.</span> <span class="nav-text">rar</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#theme"><span class="nav-number">1.24.</span> <span class="nav-text">theme</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tree"><span class="nav-number">1.25.</span> <span class="nav-text">tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#turboC3"><span class="nav-number">1.26.</span> <span class="nav-text">turboC3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ufw"><span class="nav-number">1.27.</span> <span class="nav-text">ufw</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#virtualbox"><span class="nav-number">1.28.</span> <span class="nav-text">virtualbox</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vs-code"><span class="nav-number">1.29.</span> <span class="nav-text">vs code</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wifi"><span class="nav-number">1.30.</span> <span class="nav-text">wifi</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wine"><span class="nav-number">1.31.</span> <span class="nav-text">wine</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#xmind"><span class="nav-number">1.32.</span> <span class="nav-text">xmind</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wu Zequn</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.2.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.2.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
