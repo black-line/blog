@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.2.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="插入命令a:在光标后附加文本A:在本行行末附加文本i:在光标前插入文本I:在本行开始插入文本o:在光标下插入新行O:在光标上插入新行">
+<meta name="keywords" content="vi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vi命令">
+<meta property="og:url" content="https://blog.imwzq.com/2015/10/30/vim-mark/index.html">
+<meta property="og:site_name" content="echobaymax&#39;s blog">
+<meta property="og:description" content="插入命令a:在光标后附加文本A:在本行行末附加文本i:在光标前插入文本I:在本行开始插入文本o:在光标下插入新行O:在光标上插入新行">
+<meta property="og:locale" content="zh">
+<meta property="og:updated_time" content="2015-11-09T02:52:38.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vi命令">
+<meta name="twitter:description" content="插入命令a:在光标后附加文本A:在本行行末附加文本i:在光标前插入文本I:在本行开始插入文本o:在光标下插入新行O:在光标上插入新行">
+
+
+
+
+
+
+  <link rel="canonical" href="https://blog.imwzq.com/2015/10/30/vim-mark/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>vi命令 | echobaymax's blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">echobaymax's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">hi ~</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.imwzq.com/2015/10/30/vim-mark/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wu Zequn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="echobaymax's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">vi命令
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2015-10-30 11:05:37" itemprop="dateCreated datePublished" datetime="2015-10-30T11:05:37+08:00">2015-10-30</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2015-11-09 10:52:38" itemprop="dateModified" datetime="2015-11-09T10:52:38+08:00">2015-11-09</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h6 id="插入命令"><a href="#插入命令" class="headerlink" title="插入命令"></a>插入命令</h6><p>a:在光标后附加文本<br>A:在本行行末附加文本<br>i:在光标前插入文本<br>I:在本行开始插入文本<br>o:在光标下插入新行<br>O:在光标上插入新行<br><a id="more"></a></p>
+<h6 id="定位命令"><a href="#定位命令" class="headerlink" title="定位命令"></a>定位命令</h6><p>h:左移一个字符<br>j:下移一行<br>k:上移一行<br>l:右移一个字符<br>$:移至行尾<br>0:移至行首<br>H:移至屏幕上端<br>M:移至屏幕中央<br>L:移至屏幕下端<br>:set nu:设置行号<br>:set nonu:取消行号<br>gg:到第一行<br>G:到最后一行<br>nG/:n:到第n行</p>
+<h6 id="删除命令"><a href="#删除命令" class="headerlink" title="删除命令"></a>删除命令</h6><p>x:删除光标所在处字符<br>nx:删除光标所在处后n个字符<br>dd:删除光标所在行<br>ndd:删除n行<br>dG:删除光标所在行到末尾的内容<br>D:删除从光标所在处到行尾<br>:nl,n2d:删除指定范围的行</p>
+<h6 id="复制粘贴命令"><a href="#复制粘贴命令" class="headerlink" title="复制粘贴命令"></a>复制粘贴命令</h6><p>yy/Y:复制当前行<br>nyy/nY:复制当前行一下n行<br>dd:剪切当前行<br>ndd:剪切当前行以下n行<br>p/P:粘贴在当前光标所在行下或行上</p>
+<h6 id="替换和取消命令"><a href="#替换和取消命令" class="headerlink" title="替换和取消命令"></a>替换和取消命令</h6><p>r:取代光标所在处字符<br>R:从光标所在处开始替换字符,按Esc结束<br>u:取消上一步操作</p>
+<h6 id="搜索和替换命令"><a href="#搜索和替换命令" class="headerlink" title="搜索和替换命令"></a>搜索和替换命令</h6><p>/string:向前搜索指定字符串 搜索时忽略大小写:set ic<br>n/N:搜索指定字符串的下(上)一个出现位置<br>:%s/old/new/g:全文替换指定字符串<br>:%s/old/new/c:全文替换指定字符串,要求确认(y/n/a/q/l/^E/^Y)(yes,no,all,quit……<br>:n1,n2s/old/new/g:在一定范围内替换指定字符串<br>:n1,n2s/old/new/c:在一定范围内替换指定字符串,要求确认</p>
+<h6 id="保存退出"><a href="#保存退出" class="headerlink" title="保存退出"></a>保存退出</h6><p>ZZ/:wq:write and quit<br>:q!:quit<br>:w:write<br>:w filename:另存为到其他位置</p>
+<h6 id="tips"><a href="#tips" class="headerlink" title="tips:"></a>tips:</h6><p>:r:导入文件内容<br>:r !date:导入当前时间<br>Fri Oct 30 15:13:04 CST 2015<br>:! :执行外部命令<br>:map 快捷键 触发命令:例 :map ^P I#<esc>  ^B=(ctrl+v,ctrl+B)行首插入#号<br>:map 快捷键 触发命令:例 :map ^B 0x  ^B=(ctrl+v,ctrl+B)行首删除#号<br>:n1,n2s/^/#/g:连续行注释 ^表示行首<br>:n1,n2s/^#//g:删除连续行注释 ^表示行首<br>:n1,n2s/^/\/\//g:html连续行注释 ^表示行首<br>:ab:替换 例 :ab mymail <a href="mailto:mymail@xxx.com" target="_blank" rel="noopener">mymail@xxx.com</a>  :unab  :unmap 取消定义 </esc></p>
+<h6 id="保存vim设置"><a href="#保存vim设置" class="headerlink" title="保存vim设置"></a>保存vim设置</h6><p>vi /home/username/.vimrc</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vi/" rel="tag"># vi</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/30/easter-eggs/" rel="next" title="彩蛋">
+                <i class="fa fa-chevron-left"></i> 彩蛋
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/11/09/pppoe-dialing/" rel="prev" title="配置pppd拨号">
+                配置pppd拨号 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Wu Zequn</p>
+              <p class="site-description motion-element" itemprop="description">good good study, day day up</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-name">tags</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#插入命令"><span class="nav-number">1.</span> <span class="nav-text">插入命令</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#定位命令"><span class="nav-number">2.</span> <span class="nav-text">定位命令</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#删除命令"><span class="nav-number">3.</span> <span class="nav-text">删除命令</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#复制粘贴命令"><span class="nav-number">4.</span> <span class="nav-text">复制粘贴命令</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#替换和取消命令"><span class="nav-number">5.</span> <span class="nav-text">替换和取消命令</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#搜索和替换命令"><span class="nav-number">6.</span> <span class="nav-text">搜索和替换命令</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#保存退出"><span class="nav-number">7.</span> <span class="nav-text">保存退出</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#tips"><span class="nav-number">8.</span> <span class="nav-text">tips:</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#保存vim设置"><span class="nav-number">9.</span> <span class="nav-text">保存vim设置</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wu Zequn</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.2.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.2.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
